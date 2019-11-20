@@ -1,9 +1,31 @@
 ## 初めに
-* 本領域は業務中に自作したインフラ関連のツールを一般化したものを公開し、利活用してもらう。
+* 本領域は業務中に自作したインフラ関連のツールを一般化したものを公開することで、DevOpsエンジニア / SREエンジニアを中心に利活用してもらうことを目的とする。
 
 ## 本リポジトリの構成
-* TBD
 
+```
+.
+├── README.md
+├── domain_ssl_checker
+│   ├── DomainSSLChecker.sh
+│   ├── Domain_pid_list.txt
+│   ├── README.md
+│   └── SSL_pid_list.txt
+├── harddisk_check
+│   ├── HardDiskCheck.sh
+│   ├── README.md
+│   ├── dell_hostlist.txt
+│   └── hpe_hostlist.txt
+├── hardware_check
+│   ├── HardWareCheck.sh
+│   ├── README.md
+│   └── esx_hostlist.txt
+└── memory_check
+    ├── MemoryCheck.sh
+    ├── README.md
+    ├── dell_hostlist.txt
+    └── hpe_hostlist.txt
+```
 
 ## 本リポジトリの詳細
 ### domain_ssl_checker
