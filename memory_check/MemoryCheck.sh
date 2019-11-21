@@ -6,6 +6,9 @@
 
 # 環境変数
 
+# パスワード
+PASSWD="xxx"
+
 # 通知先メールアドレス
 MAIL_ADDRESS="xxx"
 
@@ -25,7 +28,7 @@ do
     echo "=====" >> $DELL_MEM_CHK_TXT
     echo "$line:MEM_check_start" >> $DELL_MEM_CHK_TXT
     echo "-----" >> $DELL_MEM_CHK_TXT
-    sshpass -p xxx ssh $line /opt/dell/srvadmin/bin/omreport chassis memory | grep Status >> $DELL_MEM_CHK_TXT
+    sshpass -p $PASSWD ssh $line /opt/dell/srvadmin/bin/omreport chassis memory | grep Status >> $DELL_MEM_CHK_TXT
     echo "-----" >> $DELL_MEM_CHK_TXT
     echo "$line:MEM_check_end" >> $DELL_MEM_CHK_TXT
     echo "=====" >> $DELL_MEM_CHK_TXT
@@ -37,7 +40,7 @@ do
     echo "=====" >> $HPE_MEM_CHK_TXT
     echo "$line:MEM_check_start" >> $HPE_MEM_CHK_TXT
     echo "-----" >> $HPE_MEM_CHK_TXT
-    sshpass -p xxx ssh $line hpasmcli -s '"SHOW DIMM"' >> $HPE_MEM_CHK_TXT
+    sshpass -p $PASSWD ssh $line hpasmcli -s '"SHOW DIMM"' >> $HPE_MEM_CHK_TXT
     echo "-----" >> $HPE_MEM_CHK_TXT
     echo "$line:MEM_check_end" >> $HPE_MEM_CHK_TXT
     echo "=====" >> $HPE_MEM_CHK_TXT
