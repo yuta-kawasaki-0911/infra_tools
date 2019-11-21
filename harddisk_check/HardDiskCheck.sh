@@ -7,6 +7,9 @@
 
 # 環境変数
 
+# パスワード
+PASSWD="xxx"
+
 # 通知先メールアドレス
 MAIL_ADDRESS="xxx"
 
@@ -27,10 +30,10 @@ do
     echo "$line:HDD_check_start" >> $DELL_HDD_CHK_TXT
     echo "-----" >> $DELL_HDD_CHK_TXT
     echo "RAID status check" >> $DELL_HDD_CHK_TXT
-    sshpass -p xxx ssh $line /opt/dell/srvadmin/bin/omreport storage vdisk controller=0 | grep State >> $DELL_HDD_CHK_TXT
+    sshpass -p $PASSWD ssh $line /opt/dell/srvadmin/bin/omreport storage vdisk controller=0 | grep State >> $DELL_HDD_CHK_TXT
     echo "-----" >> $DELL_HDD_CHK_TXT
     echo "HDD status check" >> $DELL_HDD_CHK_TXT
-    sshpass -p xxx ssh $line /opt/dell/srvadmin/bin/omreport storage pdisk controller=0 | grep State >> $DELL_HDD_CHK_TXT
+    sshpass -p $PASSWD ssh $line /opt/dell/srvadmin/bin/omreport storage pdisk controller=0 | grep State >> $DELL_HDD_CHK_TXT
     echo "-----" >> $DELL_HDD_CHK_TXT
     echo "$line:HDD_check_end" >> $DELL_HDD_CHK_TXT
     echo "=====" >> $DELL_HDD_CHK_TXT
@@ -43,7 +46,7 @@ do
     echo "$line:HDD_check_start" >> $HPE_HDD_CHK_TXT
     echo "-----" >> $HPE_HDD_CHK_TXT
     echo "RAID status check" >> $HPE_HDD_CHK_TXT
-    sshpass -p xxx ssh $line hpacucli ctrl all show config >> $HPE_HDD_CHK_TXT
+    sshpass -p $PASSWD ssh $line hpacucli ctrl all show config >> $HPE_HDD_CHK_TXT
     echo "-----" >> $HPE_HDD_CHK_TXT
     echo "$line:HDD_check_end" >> $HPE_HDD_CHK_TXT
     echo "=====" >> $HPE_HDD_CHK_TXT

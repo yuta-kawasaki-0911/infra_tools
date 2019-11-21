@@ -6,6 +6,9 @@
 
 # 環境変数
 
+# パスワード
+PASSWD="xxx"
+
 # 通知先メールアドレス
 MAIL_ADDRESS_ESX="xxx"
 
@@ -22,7 +25,7 @@ do
     echo "$line:HW_check_start" >> $ESX_HW_CHK_TXT
     echo "-----" >> $ESX_HW_CHK_TXT
     echo "HW status check" >> $ESX_HW_CHK_TXT
-    sshpass -p xxx ssh $line vim-cmd hostsvc/hostsummary >> $ESX_HW_CHK_TXT
+    sshpass -p $PASSWD ssh $line vim-cmd hostsvc/hostsummary >> $ESX_HW_CHK_TXT
     echo "-----" >> $ESX_HW_CHK_TXT
     echo "HW status check" >> $ESX_HW_CHK_TXT
     echo "=====" >> $ESX_HW_CHK_TXT
